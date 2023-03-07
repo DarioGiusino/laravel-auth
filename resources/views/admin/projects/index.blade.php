@@ -22,7 +22,7 @@
             <th scope="row">{{ $project->id }}</th>
             <td>{{ $project->title }}</td>
             <td class="text-end">
-              <a class="btn btn-small btn-primary" href="#">Open</a>
+              <a class="btn btn-small btn-primary" href="{{ route('admin.projects.show', $project->id) }}">Open</a>
               <a class="btn btn-small btn-warning" href="#">Edit</a>
               <a class="btn btn-small btn-danger" href="#">Delete</a>
             </td>
