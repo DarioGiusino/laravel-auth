@@ -22,9 +22,9 @@
             <th scope="row">{{ $project->id }}</th>
             <td>{{ $project->title }}</td>
             <td class="text-end">
-              <a class="btn btn-small btn-primary" href="{{ route('admin.projects.show', $project->id) }}">Open</a>
-              <a class="btn btn-small btn-warning" href="#">Edit</a>
-              <a class="btn btn-small btn-danger" href="#">Delete</a>
+              <a class="btn btn-sm btn-primary" href="{{ route('admin.projects.show', $project->id) }}">Open</a>
+              <a class="btn btn-sm btn-warning" href="#">Edit</a>
+              <a class="btn btn-sm btn-danger" href="#">Delete</a>
             </td>
           </tr>
         @empty
@@ -32,5 +32,9 @@
         @endforelse
       </tbody>
     </table>
+    <hr>
+    <div class="text-end">
+      <a class="btn btn-sm btn-success me-2" href="{{ route('admin.projects.create') }}">Add</a>
+    </div>
   </section>
 @endsection
