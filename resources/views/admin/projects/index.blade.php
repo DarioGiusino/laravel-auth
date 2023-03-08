@@ -24,7 +24,10 @@
             <td class="text-end">
               <a class="btn btn-sm btn-primary" href="{{ route('admin.projects.show', $project->id) }}">Open</a>
               <a class="btn btn-sm btn-warning" href="{{ route('admin.projects.edit', $project->id) }}">Edit</a>
-              <a class="btn btn-sm btn-danger" href="{{ route('admin.projects.destroy', $project->id) }}">Delete</a>
+              <form class="d-inline" action="{{ route('admin.projects.destroy', $project->id) }}" method="post">
+                @csrf @method('delete')
+                <button class="btn btn-sm btn-danger">Delete</button>
+              </form>
             </td>
           </tr>
         @empty
