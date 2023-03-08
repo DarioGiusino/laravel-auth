@@ -13,7 +13,7 @@
   <div class="col-4">
     <div class="mb-3">
       <label for="title" class="form-label">Title</label>
-      <input type="text" class="form-control" id="title" name="title">
+      <input type="text" class="form-control" id="title" name="title" value="{{ $project->title }}">
       <div class="form-text">Add a project title</div>
     </div>
   </div>
@@ -22,7 +22,7 @@
   <div class="col-4">
     <div class="mb-3">
       <label for="repo_link" class="form-label">Repository link</label>
-      <input type="url" class="form-control" id="repo_link" name="repo_link">
+      <input type="url" class="form-control" id="repo_link" name="repo_link" value="{{ $project->repo_link }}">
       <div class="form-text">Link to the project repository</div>
     </div>
   </div>
@@ -31,7 +31,7 @@
   <div class="col-4">
     <div class="mb-3">
       <label for="image" class="form-label">Image</label>
-      <input type="text" class="form-control" id="image" name="image">
+      <input type="text" class="form-control" id="image" name="image" value="{{ $project->image }}">
       <div class="form-text">Insert a project image</div>
     </div>
   </div>
@@ -40,7 +40,7 @@
   <div class="col">
     <div class="mb-3">
       <label for="description" class="form-label">Description</label>
-      <textarea class="form-control" name="description" id="description" rows="10"></textarea>
+      <textarea class="form-control" name="description" id="description" rows="10">{{ $project->description }}</textarea>
     </div>
   </div>
 </div>
