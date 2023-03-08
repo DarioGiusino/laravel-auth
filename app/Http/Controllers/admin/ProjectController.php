@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Project;
 use Illuminate\Http\Request;
 use Faker\Generator as Faker;
+use Illuminate\Validation\Rule;
 
 class ProjectController extends Controller
 {
@@ -35,6 +36,26 @@ class ProjectController extends Controller
      */
     public function store(Request $request, Faker $faker)
     {
+        // ! validation
+        $request->validate(
+            [
+                'title' => 'required|string|unique:projects|max:40',
+                'description' => 'required|string',
+                'image' => 'url',
+                'repo_link' => 'url'
+            ],
+            [
+                'title.required' => 'A title must be given',
+                'title.string' => 'The title must be a text',
+                'title.unique' => 'This title is already taken',
+                'title.max' => 'Max length exceeded',
+                'description.required' => 'A description must be given',
+                'description.string' => 'The description must be a text',
+                'image.url' => 'Please, give a valid URL',
+                'repo_link.url' => 'Please, give a valid URL'
+            ]
+        );
+
         // retrieve the input values
         $data = $request->all();
 
@@ -75,6 +96,26 @@ class ProjectController extends Controller
      */
     public function update(Request $request, Project $project)
     {
+        // ! validation
+        $request->validate(
+            [
+                'title' => ['required', 'string', Rule::unique('projects')->ignore($project->id), 'max:40'],
+                'description' => 'required|string',
+                'image' => 'url',
+                'repo_link' => 'url'
+            ],
+            [
+                'title.required' => 'A title must be given',
+                'title.string' => 'The title must be a text',
+                'title.unique' => 'This title is already taken',
+                'title.max' => 'Max length exceeded',
+                'description.required' => 'A description must be given',
+                'description.string' => 'The description must be a text',
+                'image.url' => 'Please, give a valid URL',
+                'repo_link.url' => 'Please, give a valid URL'
+            ]
+        );
+
         $data = $request->all();
 
         $project->update($data);

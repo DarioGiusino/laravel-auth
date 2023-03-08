@@ -1,9 +1,9 @@
 @if ($project->exists)
-  <form action="{{ route('admin.projects.update', $project->id) }}" method="post">
+  <form action="{{ route('admin.projects.update', $project->id) }}" method="post" novalidate> {{-- TODO remove novalidate --}}
     {{-- * method helper --}}
     @method('PUT')
   @else
-    <form action="{{ route('admin.projects.store') }}" method="post">
+    <form action="{{ route('admin.projects.store') }}" method="post" novalidate> {{-- TODO remove novalidate --}}
 @endif
 {{-- ! cross-site request forgery --}}
 @csrf
@@ -13,7 +13,8 @@
   <div class="col-4">
     <div class="mb-3">
       <label for="title" class="form-label">Title</label>
-      <input type="text" class="form-control" id="title" name="title" value="{{ $project->title }}">
+      <input type="text" class="form-control" id="title" name="title" value="{{ $project->title }}" required
+        maxlength="40">
       <div class="form-text">Add a project title</div>
     </div>
   </div>
@@ -31,7 +32,7 @@
   <div class="col-4">
     <div class="mb-3">
       <label for="image" class="form-label">Image</label>
-      <input type="text" class="form-control" id="image" name="image" value="{{ $project->image }}">
+      <input type="url" class="form-control" id="image" name="image" value="{{ $project->image }}">
       <div class="form-text">Insert a project image</div>
     </div>
   </div>
@@ -40,7 +41,7 @@
   <div class="col">
     <div class="mb-3">
       <label for="description" class="form-label">Description</label>
-      <textarea class="form-control" name="description" id="description" rows="10">{{ $project->description }}</textarea>
+      <textarea class="form-control" name="description" id="description" rows="10" required>{{ $project->description }}</textarea>
     </div>
   </div>
 </div>
