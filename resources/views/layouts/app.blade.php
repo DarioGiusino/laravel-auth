@@ -99,6 +99,8 @@
     <main class="">
       @yield('content')
     </main>
+
+    @include('includes.alerts.success')
   </div>
 </body>
 

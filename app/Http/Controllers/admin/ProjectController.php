@@ -51,7 +51,7 @@ class ProjectController extends Controller
         $project->save();
 
         // redirect to its detail
-        return to_route('admin.projects.show', $project->id);
+        return to_route('admin.projects.show', $project->id)->with('message', "$project->title created succesfully.")->with('type', 'success');;
     }
 
     /**
@@ -79,7 +79,7 @@ class ProjectController extends Controller
 
         $project->update($data);
 
-        return to_route('admin.projects.show', $project->id);
+        return to_route('admin.projects.show', $project->id)->with('message', "$project->title updated succesfully.")->with('type', 'warning');;
     }
 
     /**
@@ -89,6 +89,6 @@ class ProjectController extends Controller
     {
         $project->delete();
 
-        return to_route('admin.projects.index');
+        return to_route('admin.projects.index')->with('message', "$project->title deleted succesfully.")->with('type', 'danger');;
     }
 }
