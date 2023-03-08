@@ -5,6 +5,7 @@ namespace App\Http\Controllers\admin;
 use App\Http\Controllers\Controller;
 use App\Models\Project;
 use Illuminate\Http\Request;
+use Faker\Generator as Faker;
 
 class ProjectController extends Controller
 {
@@ -31,10 +32,13 @@ class ProjectController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(Request $request, Faker $faker)
     {
         // retrieve the input values
         $data = $request->all();
+
+        // TODO remove (adding a random image)
+        $data['image'] = $faker->imageUrl(200, 200);
 
         // create a new project
         $project = new Project();
