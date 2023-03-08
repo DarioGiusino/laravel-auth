@@ -33,7 +33,20 @@ class ProjectController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        // retrieve the input values
+        $data = $request->all();
+
+        // create a new project
+        $project = new Project();
+
+        // fill new project with data from form
+        $project->fill($data);
+
+        // save new project on db
+        $project->save();
+
+        // redirect to its detail
+        return to_route('admin.projects.show', $project->id);
     }
 
     /**

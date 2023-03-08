@@ -8,7 +8,7 @@
     </header>
 
     {{-- # create form --}}
-    <form action="{{ route('admin.project.store') }}" method="post">
+    <form action="{{ route('admin.projects.store') }}" method="post">
 
       {{-- ! cross-site request forgery --}}
       @csrf
@@ -27,7 +27,7 @@
         <div class="col-4">
           <div class="mb-3">
             <label for="repo_link" class="form-label">Repository link</label>
-            <input type="text" class="form-control" id="repo_link" name="repo_link">
+            <input type="url" class="form-control" id="repo_link" name="repo_link">
             <div class="form-text">Link to the project repository</div>
           </div>
         </div>
