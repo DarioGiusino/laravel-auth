@@ -14,7 +14,7 @@
     <div class="mb-3">
       <label for="title" class="form-label">Title</label>
       <input type="text" class="form-control @error('title') is-invalid @enderror" id="title" name="title"
-        value="{{ $project->title }}" required maxlength="40">
+        value="{{ old('title', $project->title) }}" required maxlength="40">
       @error('title')
         <div class="invalid-feedback">{{ $message }}</div>
       @else
@@ -28,7 +28,7 @@
     <div class="mb-3">
       <label for="repo_link" class="form-label">Repository link</label>
       <input type="url" class="form-control @error('repo_link') is-invalid @enderror" id="repo_link"
-        name="repo_link" value="{{ $project->repo_link }}">
+        name="repo_link" value="{{ old('repo_link', $project->repo_link) }}">
       @error('repo_link')
         <div class="invalid-feedback">{{ $message }}</div>
       @else
@@ -42,7 +42,7 @@
     <div class="mb-3">
       <label for="image" class="form-label">Image</label>
       <input type="url" class="form-control @error('image') is-invalid @enderror" id="image" name="image"
-        value="{{ $project->image }}">
+        value="{{ old('image', $project->image) }}">
       @error('image')
         <div class="invalid-feedback">{{ $message }}</div>
       @else
@@ -56,7 +56,7 @@
     <div class="mb-3">
       <label for="description" class="form-label">Description</label>
       <textarea class="form-control @error('description') is-invalid @enderror" name="description" id="description"
-        rows="10" required>{{ $project->description }}</textarea>
+        rows="10" required>{{ old('description', $project->description) }}</textarea>
     </div>
   </div>
 </div>
