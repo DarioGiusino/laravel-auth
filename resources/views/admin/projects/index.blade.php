@@ -23,7 +23,7 @@
             <td>{{ $project->title }}</td>
             <td class="text-end">
               <a class="btn btn-sm btn-primary" href="{{ route('admin.projects.show', $project->id) }}">Open</a>
-              <a class="btn btn-sm btn-warning" href="#">Edit</a>
+              <a class="btn btn-sm btn-warning" href="{{ route('admin.projects.edit', $project->id) }}">Edit</a>
               <a class="btn btn-sm btn-danger" href="#">Delete</a>
             </td>
           </tr>
