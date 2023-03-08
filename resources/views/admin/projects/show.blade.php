@@ -13,9 +13,15 @@
       <div class="col p-3">{{ $project->description }}</div>
     </div>
     <hr>
-    <div class="text-end">
-      <a class="btn btn-sm btn-warning" href="{{ route('admin.projects.edit', $project->id) }}">Edit</a>
-      <a class="btn btn-sm btn-secondary" href="{{ route('admin.projects.index') }}">Go back</a>
+    <div class="d-flex align-items-center justify-content-between">
+      <form action="{{ route('admin.projects.destroy', $project->id) }}" method="post">
+        @csrf @method('delete')
+        <button class="btn btn-sm btn-danger">Delete</button>
+      </form>
+      <div>
+        <a class="btn btn-sm btn-warning" href="{{ route('admin.projects.edit', $project->id) }}">Edit</a>
+        <a class="btn btn-sm btn-secondary" href="{{ route('admin.projects.index') }}">Go back</a>
+      </div>
     </div>
   </section>
 @endsection
