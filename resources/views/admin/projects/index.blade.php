@@ -16,6 +16,7 @@
         <tr>
           <th scope="col">ID</th>
           <th scope="col">Title</th>
+          <th scope="col">Status</th>
           <th scope="col" class="text-end">Commands</th>
         </tr>
       </thead>
@@ -24,6 +25,9 @@
           <tr>
             <th scope="row">{{ $project->id }}</th>
             <td>{{ $project->title }}</td>
+            <td><span
+                class="text-{{ $project->is_published ? 'success' : 'danger' }}">{{ $project->is_published ? 'Online' : 'Draft' }}</span>
+            </td>
             <td class="text-end">
               <a class="btn btn-sm btn-primary" href="{{ route('admin.projects.show', $project->id) }}">Open</a>
               <a class="btn btn-sm btn-warning" href="{{ route('admin.projects.edit', $project->id) }}">Edit</a>
