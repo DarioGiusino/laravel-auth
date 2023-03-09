@@ -7,6 +7,19 @@
       <h3 class="text-center my-4">Projects List</h3>
     </header>
 
+    {{-- filter --}}
+    <form action="{{ route('admin.projects.index') }}" method="get">
+      <div class="input-group mb-3">
+        <select class="form-select" name="filter">
+          <option value="" selected>All</option>
+          <option value="online">Online</option>
+          <option value="draft">Draft</option>
+        </select>
+        <button class="btn btn-outline-secondary" type="submit">Filter</button>
+      </div>
+    </form>
+
+    {{-- pagination --}}
     <div>{{ $projects->links() }}</div>
 
 
