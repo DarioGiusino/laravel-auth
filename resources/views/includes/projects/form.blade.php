@@ -50,8 +50,15 @@
     </div>
   </div>
 
-  {{-- TODO image preview --}}
-  <div class="col-1"></div>
+  {{-- image preview --}}
+  <div class="col-1">
+    <div class="mb-3">
+      <label for="preview" class="form-label">Preview</label>
+      <img id="preview" class="img-fluid"
+        src="{{ $project->image ? asset("storage/$project->image") : 'https://marcolanci.it/utils/placeholder.jpg' }}"
+        alt="{{ $project->title }}">
+    </div>
+  </div>
 
   {{-- description --}}
   <div class="col-12">
