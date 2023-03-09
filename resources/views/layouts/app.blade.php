@@ -102,6 +102,8 @@
 
     @include('includes.alerts.success')
   </div>
+
+  @yield('scripts')
 </body>
 
 </html>

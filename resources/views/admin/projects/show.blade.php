@@ -14,7 +14,8 @@
     </div>
     <hr>
     <div class="d-flex align-items-center justify-content-between">
-      <form action="{{ route('admin.projects.destroy', $project->id) }}" method="post">
+      <form class="d-inline delete-form" action="{{ route('admin.projects.destroy', $project->id) }}" method="post"
+        data-form="{{ $project->title }}">
         @csrf @method('delete')
         <button class="btn btn-sm btn-danger">Delete</button>
       </form>
