@@ -7,6 +7,9 @@
       <h3 class="text-center my-4">Projects List</h3>
     </header>
 
+    <div>{{ $projects->links() }}</div>
+
+
     {{-- projects table --}}
     <table class="table table-striped">
       <thead>
