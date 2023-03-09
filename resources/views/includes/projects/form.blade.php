@@ -75,15 +75,13 @@
 {{-- form buttons --}}
 <div class="d-flex justify-content-between align-items-center">
   {{-- publish toggle --}}
-  <form method="post" action="{{-- TODO --}}">
-    @csrf @method('patch')
-    <div class="form-check">
-      <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
-      <label class="form-check-label" for="defaultCheck1">
-        Publish online
-      </label>
-    </div>
-  </form>
+  <div class="form-check">
+    <input class="form-check-input" type="checkbox" id="is_published" name="is_published"
+      @if (old('is_published', $project->is_published)) checked @endif>
+    <label class="form-check-label text-{{ $project->is_published ? 'success' : 'danger' }}" for="is_published">
+      {{ $project->is_published ? 'Online' : 'Draft' }}
+    </label>
+  </div>
   {{-- buttons --}}
   <div>
     <button class="btn btn-sm btn-success">Save</button>
