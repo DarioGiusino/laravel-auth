@@ -73,8 +73,21 @@
 <hr>
 
 {{-- form buttons --}}
-<div class="text-end me-2">
-  <button class="btn btn-sm btn-success">Save</button>
-  <a class="btn btn-sm btn-secondary" href="{{ route('admin.projects.index') }}">Go back</a>
+<div class="d-flex justify-content-between align-items-center">
+  {{-- publish toggle --}}
+  <form method="post" action="{{-- TODO --}}">
+    @csrf @method('patch')
+    <div class="form-check">
+      <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
+      <label class="form-check-label" for="defaultCheck1">
+        Publish online
+      </label>
+    </div>
+  </form>
+  {{-- buttons --}}
+  <div>
+    <button class="btn btn-sm btn-success">Save</button>
+    <a class="btn btn-sm btn-secondary" href="{{ route('admin.projects.index') }}">Go back</a>
+  </div>
 </div>
 </form>
