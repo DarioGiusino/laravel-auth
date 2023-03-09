@@ -1,6 +1,7 @@
 import "./bootstrap";
 import "~resources/scss/app.scss";
-import "./delete-form"; //must stay on top of ./toast!!
-import "./toast";
+import "./form/delete";
+import "./form/img-preview";
+import "./toast"; //must be the last script!!
 import * as bootstrap from "bootstrap";
 import.meta.glob(["../img/**"]);

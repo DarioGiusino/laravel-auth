@@ -53,7 +53,7 @@ class ProjectController extends Controller
                 'title.max' => 'Max length exceeded',
                 'description.required' => 'A description must be given',
                 'description.string' => 'The description must be a text',
-                'image.image' => 'Please, give an type image file',
+                'image.image' => 'Please, give an image file',
                 'image.mimes' => 'Only jpeg, jpg and png file supported',
                 'repo_link.url' => 'Please, give a valid URL'
             ]
@@ -119,7 +119,7 @@ class ProjectController extends Controller
                 'title.max' => 'Max length exceeded',
                 'description.required' => 'A description must be given',
                 'description.string' => 'The description must be a text',
-                'image.image' => 'Please, give an type image file',
+                'image.image' => 'Please, give an image file',
                 'image.mimes' => 'Only jpeg, jpg and png file supported',
                 'repo_link.url' => 'Please, give a valid URL'
             ]
