@@ -1,9 +1,9 @@
 @if ($project->exists)
-  <form action="{{ route('admin.projects.update', $project->id) }}" method="post">
+  <form action="{{ route('admin.projects.update', $project->id) }}" method="post" enctype="multipart/form-data">
     {{-- * method helper --}}
     @method('PUT')
   @else
-    <form action="{{ route('admin.projects.store') }}" method="post">
+    <form action="{{ route('admin.projects.store') }}" method="post" enctype="multipart/form-data">
 @endif
 {{-- ! cross-site request forgery --}}
 @csrf
@@ -38,21 +38,23 @@
   </div>
 
   {{-- image --}}
-  <div class="col-4">
+  <div class="col-3">
     <div class="mb-3">
       <label for="image" class="form-label">Image</label>
-      <input type="url" class="form-control @error('image') is-invalid @enderror" id="image" name="image"
-        value="{{ old('image', $project->image) }}">
+      <input type="file" class="form-control @error('image') is-invalid @enderror" id="image" name="image">
       @error('image')
         <div class="invalid-feedback">{{ $message }}</div>
       @else
-        <div class="form-text">Insert a project image</div>
+        <div class="form-text">Upload a project image</div>
       @enderror
     </div>
   </div>
 
+  {{-- TODO image preview --}}
+  <div class="col-1"></div>
+
   {{-- description --}}
-  <div class="col">
+  <div class="col-12">
     <div class="mb-3">
       <label for="description" class="form-label">Description</label>
       <textarea class="form-control @error('description') is-invalid @enderror" name="description" id="description"
