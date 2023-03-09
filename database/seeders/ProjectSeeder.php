@@ -21,7 +21,7 @@ class ProjectSeeder extends Seeder
             // fill cols with faker utils
             $project->title = $faker->text(20);
             $project->description = $faker->paragraphs(10, true);
-            $project->image = $faker->imageUrl(200, 200);
+            // $project->image = $faker->imageUrl(200, 200);
             $project->repo_link = $faker->url(1);
 
             // fill row
