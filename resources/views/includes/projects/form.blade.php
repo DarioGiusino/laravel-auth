@@ -1,9 +1,10 @@
 @if ($project->exists)
-  <form action="{{ route('admin.projects.update', $project->id) }}" method="post" enctype="multipart/form-data">
+  <form class="mb-5" action="{{ route('admin.projects.update', $project->id) }}" method="post"
+    enctype="multipart/form-data">
     {{-- * method helper --}}
     @method('PUT')
   @else
-    <form action="{{ route('admin.projects.store') }}" method="post" enctype="multipart/form-data">
+    <form class="mb-5" action="{{ route('admin.projects.store') }}" method="post" enctype="multipart/form-data">
 @endif
 {{-- ! cross-site request forgery --}}
 @csrf
@@ -78,8 +79,9 @@
   <div class="form-check">
     <input class="form-check-input" type="checkbox" id="is_published" name="is_published"
       @if (old('is_published', $project->is_published)) checked @endif>
-    <label class="form-check-label text-{{ $project->is_published ? 'success' : 'danger' }}" for="is_published">
-      {{ $project->is_published ? 'Online' : 'Draft' }}
+    <label id="toggle-label" class="form-check-label">
+      <span
+        class="text-{{ $project->is_published ? 'success' : 'danger' }}">{{ $project->is_published ? 'Online' : 'Draft' }}</span>
     </label>
   </div>
   {{-- buttons --}}
