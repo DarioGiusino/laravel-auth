@@ -6,6 +6,8 @@ use App\Http\Controllers\Controller;
 use App\Models\Project;
 use Illuminate\Http\Request;
 use Faker\Generator as Faker;
+use Illuminate\Support\Arr;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Validation\Rule;
 
 class ProjectController extends Controller
@@ -60,11 +62,16 @@ class ProjectController extends Controller
         // retrieve the input values
         $data = $request->all();
 
-        // TODO remove (adding a random image)
-        $data['image'] = $faker->imageUrl(200, 200);
-
         // create a new project
         $project = new Project();
+
+        // check if an image is given
+        if (Arr::exists($data, 'image')) {
+            // define a variable where the file is saved in a path storage/app/public/{} that return a correct URL
+            $img_url = Storage::put('projects', $data['image']);
+            // change the file given with the correct url
+            $data['image'] = $img_url;
+        }
 
         // fill new project with data from form
         $project->fill($data);
