@@ -41,8 +41,8 @@ class ProjectController extends Controller
             [
                 'title' => 'required|string|unique:projects|max:40',
                 'description' => 'required|string',
-                'image' => 'url',
-                'repo_link' => 'url'
+                'image' => 'nullable|image|mimes:png,jpeg,jpg',
+                'repo_link' => 'nullable|url'
             ],
             [
                 'title.required' => 'A title must be given',
@@ -51,7 +51,8 @@ class ProjectController extends Controller
                 'title.max' => 'Max length exceeded',
                 'description.required' => 'A description must be given',
                 'description.string' => 'The description must be a text',
-                'image.url' => 'Please, give a valid URL',
+                'image.image' => 'Please, give an type image file',
+                'image.mimes' => 'Only jpeg, jpg and png file supported',
                 'repo_link.url' => 'Please, give a valid URL'
             ]
         );
@@ -101,8 +102,8 @@ class ProjectController extends Controller
             [
                 'title' => ['required', 'string', Rule::unique('projects')->ignore($project->id), 'max:40'],
                 'description' => 'required|string',
-                'image' => 'url',
-                'repo_link' => 'url'
+                'image' => 'nullable|image|mimes:png,jpeg,jpg',
+                'repo_link' => 'nullable|url'
             ],
             [
                 'title.required' => 'A title must be given',
@@ -111,7 +112,8 @@ class ProjectController extends Controller
                 'title.max' => 'Max length exceeded',
                 'description.required' => 'A description must be given',
                 'description.string' => 'The description must be a text',
-                'image.url' => 'Please, give a valid URL',
+                'image.image' => 'Please, give an type image file',
+                'image.mimes' => 'Only jpeg, jpg and png file supported',
                 'repo_link.url' => 'Please, give a valid URL'
             ]
         );
