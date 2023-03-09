@@ -127,6 +127,16 @@ class ProjectController extends Controller
 
         $data = $request->all();
 
+        // check if an image is given
+        if (Arr::exists($data, 'image')) {
+            // if exists an image, delete it to make space for the newest
+            if ($project->image) Storage::delete($project->image);
+            // define a variable where the file is saved in a path storage/app/public/{} that return a correct URL
+            $img_url = Storage::put('projects', $data['image']);
+            // change the file given with the correct url
+            $data['image'] = $img_url;
+        }
+
         $project->update($data);
 
         return to_route('admin.projects.show', $project->id)->with('message', "$project->title updated succesfully.")->with('type', 'warning');;
