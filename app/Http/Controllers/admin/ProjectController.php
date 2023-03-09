@@ -76,6 +76,9 @@ class ProjectController extends Controller
         // fill new project with data from form
         $project->fill($data);
 
+        // define publish or not
+        $project->is_published = Arr::exists($data, 'is_published');
+
         // save new project on db
         $project->save();
 
@@ -136,6 +139,9 @@ class ProjectController extends Controller
             // change the file given with the correct url
             $data['image'] = $img_url;
         }
+
+        // define publish or not
+        $data['is_published'] = Arr::exists($data, 'is_published');
 
         $project->update($data);
 
