@@ -8,7 +8,7 @@
     </header>
     <div class="row row-cols-2">
       <div class="col d-flex justify-content-center align-items-center">
-        <img src="{{ $project->image }}" alt="{{ $project->title }}">
+        <img src="{{ asset("storage/$project->image") }}" alt="{{ $project->title }}">
       </div>
       <div class="col p-3">{{ $project->description }}</div>
     </div>
