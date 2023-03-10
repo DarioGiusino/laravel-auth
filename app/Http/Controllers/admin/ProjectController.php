@@ -30,7 +30,7 @@ class ProjectController extends Controller
         $projects = $query->paginate(10);
 
         //return projects index with projects
-        return view('admin.projects.index', compact('projects'));
+        return view('admin.projects.index', compact('projects', 'filter'));
     }
 
     /**

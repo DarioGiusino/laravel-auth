@@ -12,8 +12,8 @@
       <div class="input-group mb-3">
         <select class="form-select" name="filter">
           <option value="" selected>All</option>
-          <option value="online">Online</option>
-          <option value="draft">Draft</option>
+          <option @if ($filter === 'online') selected @endif value="online">Online</option>
+          <option @if ($filter === 'draft') selected @endif value="draft">Draft</option>
         </select>
         <button class="btn btn-outline-secondary" type="submit">Filter</button>
       </div>
